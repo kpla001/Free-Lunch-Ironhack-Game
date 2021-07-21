@@ -1,0 +1,5 @@
+Challenges:
+
+1) was having difficult getting player image to switch when moving left
+
+2) had issues trying to display correct number of life icons;
