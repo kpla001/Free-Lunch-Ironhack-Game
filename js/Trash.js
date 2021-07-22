@@ -1,11 +1,32 @@
-var trashImg1 = ".images/bananapeel.png"
-var trashImg2 = ".images/tire.png"
-var trashImg3 = ".images/cardboard.png"
+var trashImage1 = new Image();
+var trashImage2 = new Image();
+var trashImage3 = new Image();
+var trashImage4 = new Image();
+var trashImage5 = new Image();
+var trashImage6 = new Image();
+var trashImage7 = new Image();
+var trashImage8 = new Image();
 
-var trashImages = []
+trashImage1.src = "./images/bananapeel.png";
+trashImage2.src = "./images/cardboard.png";
+trashImage3.src = "./images/chair.png";
+trashImage4.src = "./images/papertrash.png";
+trashImage5.src = "./images/tincan.png";
+trashImage6.src = "./images/tire.png";
+trashImage7.src = "./images/trashbag.png";
+trashImage8.src = "./images/wrapper.png";
+/////////////////////////////////////////////////////////////////////////////
+
+
+
 class Trash extends Component {
-    constructor(classGame, x, y, width, height){
-        super(classGame, x, y, width, height)
+    constructor(classGame, x, y, width, height, imageSrc) {
+        super(classGame, x, y, width, height, imageSrc)
+    }
+
+    drawTrash() {
+        myTrash.push(this.game.context.drawImage(this.image, this.x, this.y, this.width, this.height));
+        
     }
 
 }

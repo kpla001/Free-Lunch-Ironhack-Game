@@ -5,12 +5,12 @@ class Component {
         this.y = y;
         this.width = width;
         this.height = height;
-        this.img = new Image();
-        this.img.src = imageSrc;
+        this.image = new Image();
+        this.image.src = imageSrc;
     }
 
     drawComponent() {
-        this.game.context.drawImage(this.img, this.x, this.y, this.width, this.height)
+        this.game.context.drawImage(this.image, this.x, this.y, this.width, this.height)
     }
 
 }
