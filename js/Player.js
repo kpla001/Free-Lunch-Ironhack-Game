@@ -1,5 +1,5 @@
 class Player extends Component {
-    constructor(classGame, x, y, width, height, imageSrc) {
+    constructor(classGame,x, y, width, height, imageSrc) {
         super(classGame, x, y, width, height, imageSrc);
             
         this.immunity = false;
@@ -13,12 +13,18 @@ class Player extends Component {
             switch (event.code) {
                 case "ArrowRight":
                 case "Key D":
-                    if (this.x < 735) this.x += 40;
+                    if (this.x < 735) {
+                        this.x += 40;
+                        this.img.src = "./images/alligatorR.png";
+                    }
                     break;
 
                 case "ArrowLeft":
                 case "KeyA":
-                    if (this.x > 10) this.x -= 40;
+                    if (this.x > 10) {
+                        this.x -= 40;
+                        this.img.src = "./images/alligatorL.png";
+                    }
                     break;
                 default:
                     console.log("Get a move on, gator!")
@@ -26,5 +32,6 @@ class Player extends Component {
         })
 
     }
+    
 
 }

@@ -6,16 +6,15 @@ class Game {
         this.canvas = document.getElementById("canvas");
         this.context = this.canvas.getContext("2d");  
         this.background = new Component(this, 0, 0, this.canvas.width, this.canvas.height, "./images/swamp.png")
+        
         this.alligator = new Player(this, this.canvas.width/3, 500, 256, 256, "./images/alligatorR.png")
         this.score = 0;
 
         // Lives //
         this.livesLeft = [];
-        
         this.alligator.lives.forEach((life) => {
             this.livesLeft.push(new Component(this, 105, 10, 83.335, 55.333, "./images/life.png"))
         });
-
         for (let i = 0; i < this.livesLeft.length; i++) {
             if(i === 0) {
                 this.livesLeft[i].x += 0
@@ -34,7 +33,7 @@ class Game {
     start() {
         this.drawLoop();
         this.alligator.move();
-        console.log(this.livesLeft);
+       
         
     }
 
@@ -55,11 +54,14 @@ class Game {
         this.background.drawComponent();
         this.drawScore();
         this.alligator.drawComponent();
-        this.drawLivesText();
 
+        this.drawLivesText();
         this.livesLeft.forEach((life) => {
            life.drawComponent();
         })
+
         window.requestAnimationFrame(() => this.drawLoop());
     }
+
+    
 }
