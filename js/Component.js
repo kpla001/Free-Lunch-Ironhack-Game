@@ -15,9 +15,9 @@ class Component {
 
     trashDidCollide(otherComponent) {
         if (
-            otherComponent.x + otherComponent.width - 30 < this.x ||
+            otherComponent.x + otherComponent.width - 25 < this.x ||
             otherComponent.y + 160 > this.y + this.height ||
-            this.x + this.width - 30 < otherComponent.x ||
+            this.x + this.width - 25 < otherComponent.x ||
             otherComponent.y + otherComponent.height < this.y
         ) {
             return false;
