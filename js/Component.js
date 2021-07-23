@@ -24,8 +24,20 @@ class Component {
         } else {
             return true;
         }
-    };
+    }
 
+    foodDidCollide(otherComponent) {
+        if (
+            otherComponent.x + otherComponent.width - 25 < this.x ||
+            otherComponent.y + 140 > this.y + this.height ||
+            this.x + this.width - 25 < otherComponent.x ||
+            otherComponent.y + otherComponent.height < this.y
+        ) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 }
 
         

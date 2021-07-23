@@ -17,16 +17,8 @@ trashImage7.src = "./images/trashbag.png";
 trashImage8.src = "./images/wrapper.png";
 /////////////////////////////////////////////////////////////////////////////
 
-
-
 class Trash extends Component {
     constructor(classGame, x, y, width, height, imageSrc) {
         super(classGame, x, y, width, height, imageSrc)
     }
-
-    drawTrash() {
-        myTrash.push(this.game.context.drawImage(this.image, this.x, this.y, this.width, this.height));
-        
-    }
-
 }
