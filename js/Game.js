@@ -89,13 +89,13 @@ class Game {
 
     pushTrashLoop() {
         setInterval(() => {
-            if (counter % 3 === 0) {
+            if (this.myTrash.length > 4) {
             this.myTrash.shift()
             };
-            if (counter % 3 === 0) {
-            this.myTrash.push(new Component(this, Math.floor((Math.random() * this.canvas.width)), 0, 100, 120, trashImages[pickRandom(trashImages)].src));
+            if (counter % 2 === 0) {
+            this.myTrash.push(new Component(this, Math.floor((Math.random() * (this.canvas.width - 75))), 0, 100, 120, trashImages[pickRandom(trashImages)].src));
             };
-        },1000);
+        }, 500);
     }
 
 
@@ -107,23 +107,43 @@ class Game {
         
         if (this.myTrash.length > 0) {
             this.myTrash[0].drawComponent();
-            this.myTrash[0].y += 4;
+            this.myTrash[0].y += 6;
         };
         
+        if (this.myTrash.length > 1) {
+            this.myTrash[1].drawComponent();
+            this.myTrash[1].y += 5;
+        };
+        if (this.myTrash.length > 2) {
+            this.myTrash[2].drawComponent();
+            this.myTrash[2].y += 4;
+        };
         
-        /*
-        this.trash.drawComponent();
-        this.trash.y += 4;
-        if (this.trash.y > this.canvas.height) {
-        this.trash.y = 0;
-        this.trash.x = Math.random() * (this.canvas.width - this.trash.width);
-        }
-        */
+        if (this.myTrash[0] && this.myTrash[0].trashDidCollide(this.alligator)) {
+            if (this.alligator.immunity === false) {
+            this.livesLeft.pop();
+            this.alligator.switchImmunity();
+            }
+        };
+
+        if (this.myTrash[1] && this.myTrash[1].trashDidCollide(this.alligator)) {
+            if (this.alligator.immunity === false) {
+            this.livesLeft.pop();
+            this.alligator.switchImmunity();
+            }
+        };
+
+        if (this.myTrash[2] && this.myTrash[2].trashDidCollide(this.alligator)) {
+            if (this.alligator.immunity === false) {
+            this.livesLeft.pop();
+            this.alligator.switchImmunity();
+            }
+        };
+        
+
 
         this.drawLivesText();
-        this.livesLeft.forEach((life) => {
-            life.drawComponent();
-        })
+        this.livesLeft.forEach((life) => life.drawComponent())
 
         window.requestAnimationFrame(() => this.drawLoop());
     }

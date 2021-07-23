@@ -8,8 +8,8 @@ class Player extends Component {
     }
     
     move() {
-       document.addEventListener("keydown", (event) => {
-           console.log(event.code)
+        document.addEventListener("keydown", (event) => {
+        console.log(event.code)
             switch (event.code) {
                 case "ArrowRight":
                 case "KeyD":
@@ -29,9 +29,16 @@ class Player extends Component {
                 default:
                     console.log("Get a move on, gator!")
             }
+            
         })
 
     }
     
+    switchImmunity = () => {
+        this.immunity = true;
+        setTimeout( () => {
+            this.immunity = false;
+        }, 1000);
+    };
 
 }
