@@ -27,7 +27,7 @@ var trashImages = [     // this is used to spawn new trash images each time
 
 //////////////////////////     Food Images     ///////////////////////////////
 
-var foodImages = [
+var foodImages = [     // this is used to spawn new food images each time
     foodImage1,
     foodImage2,
     foodImage3,
@@ -100,13 +100,13 @@ class Game {
 
     drawScore() {
         this.context.fillStyle = "white";
-        this.context.font = "28px Comic-sans";
+        this.context.font = "28px playbill-regular";
         this.context.fillText(`Score: ${this.score}`, this.canvas.width/2.2, 50);
     }
 
     drawLivesText() {
         this.context.fillStyle = "white";
-        this.context.font = "28px Comic-sans";
+        this.context.font = "28px playbill-regular";
         this.context.fillText(`Lives:`, 30, 50);
     }
 
@@ -154,21 +154,25 @@ class Game {
         };
         if (this.myTrash[0] && this.myTrash[0].trashDidCollide(this.alligator)) {
             if (this.alligator.immunity === false) {
-            this.livesLeft.pop();
-            this.alligator.switchImmunity();
+                this.livesLeft.pop();
+                this.alligator.switchImmunity();
+                this.myTrash.splice(0,1);
+                //this.context.clearRect(this.myTrash[0].x, this.myTrash[0].y, this.myTrash[0].width, this.myTrash[0].height);
             }
         };
         if (this.myTrash[1] && this.myTrash[1].trashDidCollide(this.alligator)) {
             if (this.alligator.immunity === false) {
-            this.livesLeft.pop();
-            this.alligator.switchImmunity();
+                this.livesLeft.pop();
+                this.alligator.switchImmunity();
+                this.myTrash.splice(1,1);
             }
         };
         if (this.myTrash[2] && this.myTrash[2].trashDidCollide(this.alligator)) {
-            if (this.alligator.immunity === false) {
-            this.livesLeft.pop();
-            this.alligator.switchImmunity();
-            }
+                if (this.alligator.immunity === false) {
+                this.livesLeft.pop();
+                this.alligator.switchImmunity();
+                this.myTrash.splice(2,1);
+                }
         };
         
 
@@ -180,17 +184,36 @@ class Game {
 
         if (this.myFood[0] && this.myFood[0].foodDidCollide(this.alligator)) {
             if (this.alligator.immunity === false) {
-                this.myFood.unshift();
+                this.myFood.splice(0,1);
                 this.score += 1;
                 this.alligator.switchImmunity();
             }
         };
 
-        ///////////////////////////////////////////////////////
+        ////////////  Lives  ///////////////
         this.drawLivesText();
         this.livesLeft.forEach((life) => life.drawComponent())
 
+        ////////////////////////////////////
+        if (this.livesLeft.length <= 0) {
+            this.gameOver();
+        }
         window.requestAnimationFrame(() => this.drawLoop());
+    }
+
+    gameOver() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.background.drawComponent();
+
+        const funnyAlligator = new Component(this, 123, 130, 750, 454, "./images/gameover.jpg");
+
+        funnyAlligator.drawComponent();
+
+        this.context.fillStyle = "white";
+        this.context.font = "70px playbill-regular";
+        this.context.fillText("GAME OVER", 300, 210)
+
+        window.requestAnimationFrame(() => this.gameOver());
     }
 
     
