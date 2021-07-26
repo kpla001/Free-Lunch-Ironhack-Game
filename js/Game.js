@@ -153,24 +153,24 @@ class Game {
             this.myTrash[2].y += 4;
         };
         if (this.myTrash[0] && this.myTrash[0].trashDidCollide(this.alligator)) {
-            if (this.alligator.immunity === false) {
+            if (this.alligator.trashImmunity === false) {
                 this.livesLeft.pop();
-                this.alligator.switchImmunity();
+                this.alligator.switchTrashImmunity();
                 this.myTrash.splice(0,1);
                 //this.context.clearRect(this.myTrash[0].x, this.myTrash[0].y, this.myTrash[0].width, this.myTrash[0].height);
             }
         };
         if (this.myTrash[1] && this.myTrash[1].trashDidCollide(this.alligator)) {
-            if (this.alligator.immunity === false) {
+            if (this.alligator.trashImmunity === false) {
                 this.livesLeft.pop();
-                this.alligator.switchImmunity();
+                this.alligator.switchTrashImmunity();
                 this.myTrash.splice(1,1);
             }
         };
         if (this.myTrash[2] && this.myTrash[2].trashDidCollide(this.alligator)) {
-                if (this.alligator.immunity === false) {
+                if (this.alligator.trashImmunity === false) {
                 this.livesLeft.pop();
-                this.alligator.switchImmunity();
+                this.alligator.switchTrashImmunity();
                 this.myTrash.splice(2,1);
                 }
         };
@@ -183,10 +183,10 @@ class Game {
         };
 
         if (this.myFood[0] && this.myFood[0].foodDidCollide(this.alligator)) {
-            if (this.alligator.immunity === false) {
+            if (this.alligator.foodImmunity === false) {
                 this.myFood.splice(0,1);
                 this.score += 1;
-                this.alligator.switchImmunity();
+                this.alligator.switchFoodImmunity();
             }
         };
 

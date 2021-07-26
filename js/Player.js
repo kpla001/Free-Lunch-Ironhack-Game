@@ -2,7 +2,8 @@ class Player extends Component {
     constructor(classGame,x, y, width, height, imageSrc) {
         super(classGame, x, y, width, height, imageSrc);
             
-        this.immunity = false;
+        this.trashImmunity = false;
+        this.foodImmunity = false;
         this.lives = [1, 1, 1];
         
     }
@@ -34,10 +35,17 @@ class Player extends Component {
 
     }
     
-    switchImmunity = () => {
-        this.immunity = true;
+    switchTrashImmunity = () => {
+        this.trashImmunity = true;
         setTimeout( () => {
-            this.immunity = false;
+            this.trashImmunity = false;
+        }, 1000);
+    };
+
+    switchFoodImmunity = () => {
+        this.foodImmunity = true;
+        setTimeout( () => {
+            this.foodImmunity = false;
         }, 1000);
     };
 
