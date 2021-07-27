@@ -47,7 +47,7 @@ class Game {
         this.background = new Component(this, 0, 0, this.canvas.width, this.canvas.height, "./images/swamp.png");
         this.alligator = new Player(this, this.canvas.width/3, 500, 256, 256, "./images/alligatorR.png");
         this.score = 0;
-
+        this.backgroundAudio = new Audio("./sounds/background-music.mp3");
 
         //////////////////////// Spawning Trash ///////////////////////////
 
@@ -96,6 +96,12 @@ class Game {
         this.alligator.move();
         this.pushTrashLoop();
         this.pushFoodLoop();
+
+
+        this.backgroundAudio.addEventListener("ended", () =>{
+            this.backgroundAudio.play()
+        }, false);
+        this.backgroundAudio.play();
     }
 
     drawScore() {
@@ -112,13 +118,13 @@ class Game {
 
     pushTrashLoop() {
         setInterval(() => {
-            if (this.myTrash.length > 4) {
+            if (this.myTrash.length > 6) {
             this.myTrash.shift()
             };
             if (counter % 2 === 0) {
             this.myTrash.push(new Component(this, Math.floor((Math.random() * (this.canvas.width - 75))), 0, 100, 120, trashImages[pickRandom(trashImages)].src));
             };
-        }, 500);
+        }, 600);
     }
 
     pushFoodLoop() {
@@ -129,7 +135,7 @@ class Game {
             if (counter % 3 === 0) {
             this.myFood.push(new Component(this, Math.floor((Math.random() * (this.canvas.width - 75))), 0, 100, 120, foodImages[pickRandom(foodImages)].src));
             };
-        }, 1000);
+        }, 700);
     }
 
 
@@ -152,29 +158,55 @@ class Game {
             this.myTrash[2].drawComponent();
             this.myTrash[2].y += 4;
         };
+        if (this.myTrash.length > 3) {
+            this.myTrash[3].drawComponent();
+            this.myTrash[3].y += 5;
+        };
         if (this.myTrash[0] && this.myTrash[0].trashDidCollide(this.alligator)) {
             if (this.alligator.trashImmunity === false) {
+                new Audio("./sounds/alligator-squelch.wav").play();
                 this.livesLeft.pop();
                 this.alligator.switchTrashImmunity();
                 this.myTrash.splice(0,1);
                 //this.context.clearRect(this.myTrash[0].x, this.myTrash[0].y, this.myTrash[0].width, this.myTrash[0].height);
             }
+            if (this.livesLeft.length === 0){
+                new Audio("./sounds/game-over.mp3").play();
+            }
         };
         if (this.myTrash[1] && this.myTrash[1].trashDidCollide(this.alligator)) {
             if (this.alligator.trashImmunity === false) {
+                new Audio("./sounds/alligator-squelch.wav").play();
                 this.livesLeft.pop();
                 this.alligator.switchTrashImmunity();
                 this.myTrash.splice(1,1);
             }
+            if (this.livesLeft.length === 0){
+                new Audio("./sounds/game-over.mp3").play();
+            }
         };
         if (this.myTrash[2] && this.myTrash[2].trashDidCollide(this.alligator)) {
                 if (this.alligator.trashImmunity === false) {
+                    new Audio("./sounds/alligator-squelch.wav").play();
                 this.livesLeft.pop();
                 this.alligator.switchTrashImmunity();
                 this.myTrash.splice(2,1);
+                };
+                if (this.livesLeft.length === 0){
+                    new Audio("./sounds/game-over.mp3").play();
                 }
         };
-        
+        if (this.myTrash[3] && this.myTrash[3].trashDidCollide(this.alligator)) {
+            if (this.alligator.trashImmunity === false) {
+                new Audio("./sounds/alligator-squelch.wav").play();
+            this.livesLeft.pop();
+            this.alligator.switchTrashImmunity();
+            this.myTrash.splice(3,1);
+            };
+            if (this.livesLeft.length === 0){
+                new Audio("./sounds/game-over.mp3").play();
+            }
+    };
 
         /////////// Food Loop ////////////
         if (this.myFood.length > 0) {
@@ -184,12 +216,24 @@ class Game {
 
         if (this.myFood[0] && this.myFood[0].foodDidCollide(this.alligator)) {
             if (this.alligator.foodImmunity === false) {
+                new Audio("./sounds/munch.mp3").play();
                 this.myFood.splice(0,1);
                 this.score += 1;
                 this.alligator.switchFoodImmunity();
             }
         };
-
+        if (this.myFood.length > 1) {
+            this.myFood[1].drawComponent();
+            this.myFood[1].y += 5;
+        }
+        if (this.myFood[1] && this.myFood[1].foodDidCollide(this.alligator)) {
+            if (this.alligator.foodImmunity === false) {
+                new Audio("./sounds/munch.mp3").play();
+                this.myFood.splice(1,1);
+                this.score += 1;
+                this.alligator.switchFoodImmunity();
+            }
+        };
         ////////////  Lives  ///////////////
         this.drawLivesText();
         this.livesLeft.forEach((life) => life.drawComponent())
@@ -197,16 +241,17 @@ class Game {
         ////////////////////////////////////
         if (this.livesLeft.length <= 0) {
             this.gameOver();
-        }
+        } else {
         window.requestAnimationFrame(() => this.drawLoop());
+        };
     }
 
     gameOver() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.background.drawComponent();
-
+        this.backgroundAudio.pause();
         const funnyAlligator = new Component(this, 123, 130, 750, 454, "./images/gameover.jpg");
-
+        
         funnyAlligator.drawComponent();
 
         this.context.fillStyle = "white";
@@ -215,6 +260,5 @@ class Game {
 
         window.requestAnimationFrame(() => this.gameOver());
     }
-
     
 }
