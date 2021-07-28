@@ -18,7 +18,7 @@ class Component {
             otherComponent.x + otherComponent.width - 25 < this.x ||
             otherComponent.y + 160 > this.y + this.height ||
             this.x + this.width - 25 < otherComponent.x ||
-            otherComponent.y + otherComponent.height < this.y
+            otherComponent.y + otherComponent.height < this.y + 50
         ) {
             return false;
         } else {

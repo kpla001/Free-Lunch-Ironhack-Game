@@ -10,7 +10,6 @@ class Player extends Component {
     
     move() {
         document.addEventListener("keydown", (event) => {
-        console.log(event.code)
             switch (event.code) {
                 case "ArrowRight":
                 case "KeyD":

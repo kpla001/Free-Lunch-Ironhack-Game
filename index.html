@@ -12,12 +12,73 @@
         <img src = "./images/Free Lunch.png" class="logo-img">
         <img src= "./images/arrows.png" class="arrow-img">
         <button id="start-button">Start Game</button>
+        <button id="restart-button" class="hidden">Restart</button>
     </div>
 
-    <article>
-        <canvas width ="1000" height ="700" id="canvas"> </canvas>
-    </article>
     
+    <div class ="landing-page instructions" id="main-content">
+        <h1>How to Play</h1>
+            <section class ="instructions avoid">
+                <h2>Avoid falling trash or lose lives...</h2>
+                <ul>
+                    <li>
+                        <img src="./images/bananapeel.png" class="trash">
+                    </li>
+                    <li>
+                        <img src="./images/cardboard.png" class="trash">
+                    </li>
+                    <li>
+                        <img src="./images/chair.png" class="trash">
+                    </li>
+                    <li>
+                        <img src="./images/papertrash.png" class="trash">
+                    </li>
+                    <li>
+                        <img src="./images/tincan.png" class="trash">
+                    </li>
+                    <li>
+                        <img src="./images/tire.png" class="trash">
+                    </li>
+                    <li>
+                        <img src="./images/trashbag.png" class="trash">
+                    </li>
+                    <li>
+                        <img src="./images/wrapper.png" class="trash">
+                    </li>
+                </ul>
+            </section>
+            <section class ="instructions eat">
+                <h2>Eat food to earn points and high score!</h2>
+                <ul class="ul-eat">
+                    <li>
+                        <img src="./images/chicken.png" class="food">
+                    </li>
+                    <li>
+                        <img src="./images/fries.png" class="food">
+                    </li>
+                    <li>
+                        <img src="./images/hamburger.png" class="food">
+                    </li>
+                    <li>
+                        <img src="./images/hotdog.png"  class="food">
+                    </li>
+                    <li>
+                        <img src="./images/jerky.png" class="food">
+                    </li>
+                    <li>
+                        <img src="./images/pizza.png" class="food">
+                    </li>
+                    <li>
+                        <img src="./images/sushi.png" class="food">
+                    </li>
+                    <li>
+                        <img src="./images/taco.png" class="food">
+                    </li>
+                </ul>
+            </section>
+    </div>
+
+    <canvas width ="1000" height ="700" id="canvas"> </canvas>
     
 
     <script src= "js/Component.js"></script>
