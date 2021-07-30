@@ -25,13 +25,6 @@ restartButton.addEventListener('click', () => {
 //       startGame();
 //     };
 
-// startAgainBtn.addEventListener('click', () => {
-//   game = new Game(gameOverSection);
-//   gameOverSection.classList.toggle("hidden");
-//   cnavas.style.display = 'block';
-//   game.init();
-// });
-
 function startGame() {
     return  game.start();
     };

@@ -1,3 +1,7 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 #start-button {
   font-size: 30px;
   background-color: rgba(4, 147, 114, 1);
@@ -22,6 +26,16 @@
   width: 300px;
 }
 
+button:hover {
+  background-color: rgb(4, 88, 69);
+}
+
+button:active {
+  background-color: rgb(4, 88, 69);
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
 body div {
   display: flex;
   flex-direction: column;
@@ -34,7 +48,7 @@ body div {
   width: 500px;
   height: 500px;
   margin-bottom: -30px;
-  margin-top: -30px;
+  margin-top: -65px;
 }
 
 .arrow-img {
@@ -58,12 +72,13 @@ body {
 .landing-page {
   width: 998px;
   height: 700px;
-  background-image: url("../Images/Swamp.jpeg");
-  background-size: cover;
+  background-image: url("../Images/swamp.png");
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: row;
   align-items: center;
   align-content: center;
+  justify-content: center;
 }
 
 .instructions {

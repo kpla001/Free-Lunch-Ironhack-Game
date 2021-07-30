@@ -52,9 +52,11 @@ class Game {
         //////////////////////// Spawning Trash ///////////////////////////
 
         this.myTrash = [];
-        setInterval(() => {
-            console.log(counter);
-        }, 1000);
+
+        
+        // setInterval(() => {
+        //     console.log(counter);
+        // }, 1000);
         
         // setInterval(() => {
         //     console.log(this.myTrash);
