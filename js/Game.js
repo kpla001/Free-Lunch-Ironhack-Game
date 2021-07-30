@@ -253,7 +253,7 @@ class Game {
         this.background.drawComponent();
         this.backgroundAudio.pause();
 
-        const funnyAlligator = new Component(this, 123, 130, 750, 454, "./images/gameover.jpg");
+        const funnyAlligator = new Component(this, 123, 130, 750, 454, "./Images/gameover.jpg");
         funnyAlligator.drawComponent();
 
         this.context.fillStyle = "white";
