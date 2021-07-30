@@ -15,7 +15,7 @@ class Player extends Component {
                 case "KeyD":
                     if (this.x < 735) {
                         this.x += 40;
-                        this.image.src = "./images/alligatorR.png";
+                        this.image.src = "./Images/alligatorR.png";
                     }
                     break;
 
@@ -23,7 +23,7 @@ class Player extends Component {
                 case "KeyA":
                     if (this.x > 10) {
                         this.x -= 40;
-                        this.image.src = "./images/alligatorL.png";
+                        this.image.src = "./Images/alligatorL.png";
                     }
                     break;
                 default:
