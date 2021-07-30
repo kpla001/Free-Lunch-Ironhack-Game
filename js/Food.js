@@ -1,11 +1,11 @@
-var foodImage1 = new Image();
-var foodImage2 = new Image();
-var foodImage3 = new Image();
-var foodImage4 = new Image();
-var foodImage5 = new Image();
-var foodImage6 = new Image();
-var foodImage7 = new Image();
-var foodImage8 = new Image();
+const foodImage1 = new Image();
+const foodImage2 = new Image();
+const foodImage3 = new Image();
+const foodImage4 = new Image();
+const foodImage5 = new Image();
+const foodImage6 = new Image();
+const foodImage7 = new Image();
+const foodImage8 = new Image();
 
 foodImage1.src = "./Images/chicken.png";
 foodImage2.src = "./Images/fries.png";

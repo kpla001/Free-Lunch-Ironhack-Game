@@ -1,11 +1,11 @@
-var trashImage1 = new Image();
-var trashImage2 = new Image();
-var trashImage3 = new Image();
-var trashImage4 = new Image();
-var trashImage5 = new Image();
-var trashImage6 = new Image();
-var trashImage7 = new Image();
-var trashImage8 = new Image();
+const trashImage1 = new Image();
+const trashImage2 = new Image();
+const trashImage3 = new Image();
+const trashImage4 = new Image();
+const trashImage5 = new Image();
+const trashImage6 = new Image();
+const trashImage7 = new Image();
+const trashImage8 = new Image();
 
 trashImage1.src = "./Images/bananapeel.png";
 trashImage2.src = "./Images/cardboard.png";

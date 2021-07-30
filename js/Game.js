@@ -1,4 +1,6 @@
-var counter = 0;
+////////////////////////// Internal Game Timer  ///////////////////////////////
+
+let counter = 0;
 const myTime = setInterval(startClock, 1000);
 function startClock() {
    return counter += 1;
@@ -13,7 +15,7 @@ function pickRandom(array) {
 
 //////////////////////////     Trash Images     ///////////////////////////////
 
-var trashImages = [     // this is used to spawn new trash images each time
+const trashImages = [     // this is used to spawn new trash images each time
     trashImage1, 
     trashImage2,
     trashImage3,
@@ -27,7 +29,7 @@ var trashImages = [     // this is used to spawn new trash images each time
 
 //////////////////////////     Food Images     ///////////////////////////////
 
-var foodImages = [     // this is used to spawn new food images each time
+const foodImages = [     // this is used to spawn new food images each time
     foodImage1,
     foodImage2,
     foodImage3,

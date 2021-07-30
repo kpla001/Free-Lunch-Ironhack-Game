@@ -45,7 +45,7 @@ class Player extends Component {
         this.foodImmunity = true;
         setTimeout( () => {
             this.foodImmunity = false;
-        }, 800);
+        }, 400);
     };
 
 }
