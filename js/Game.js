@@ -44,8 +44,8 @@ class Game {
     constructor(){
         this.canvas = document.getElementById("canvas");
         this.context = this.canvas.getContext("2d");  
-        this.background = new Component(this, 0, 0, this.canvas.width, this.canvas.height, "./images/swamp.png");
-        this.alligator = new Player(this, this.canvas.width/3, 500, 256, 256, "./images/alligatorR.png");
+        this.background = new Component(this, 0, 0, this.canvas.width, this.canvas.height, "./Images/swamp.png");
+        this.alligator = new Player(this, this.canvas.width/3, 500, 256, 256, "./Images/alligatorR.png");
         this.score = 0;
         this.backgroundAudio = new Audio("./sounds/background-music.mp3");
 
@@ -53,7 +53,7 @@ class Game {
 
         this.myTrash = [];
 
-        
+
         // setInterval(() => {
         //     console.log(counter);
         // }, 1000);
@@ -76,7 +76,7 @@ class Game {
 
         this.livesLeft = [];
         this.alligator.lives.forEach((life) => {
-            this.livesLeft.push(new Component(this, 105, 10, 83.335, 55.333, "./images/life.png"))
+            this.livesLeft.push(new Component(this, 105, 10, 83.335, 55.333, "./Images/life.png"))
         });
         for (let i = 0; i < this.livesLeft.length; i++) {
             if(i === 0) {
