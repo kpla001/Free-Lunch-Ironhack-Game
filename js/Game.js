@@ -49,8 +49,9 @@ class Game {
         this.background = new Component(this, 0, 0, this.canvas.width, this.canvas.height, "./Images/swamp.png");
         this.alligator = new Player(this, this.canvas.width/3, 500, 256, 256, "./Images/alligatorR.png");
         this.score = 0;
-        this.backgroundAudio = new Audio("./sounds/background-music.mp3");
 
+        this.backgroundAudio = new Audio("./sounds/background-music.mp3");
+        this.backgroundAudio.volume = 0.05;
         //////////////////////// Spawning Trash ///////////////////////////
 
         this.myTrash = [];
@@ -168,47 +169,63 @@ class Game {
         };
         if (this.myTrash[0] && this.myTrash[0].trashDidCollide(this.alligator)) {
             if (this.alligator.trashImmunity === false) {
-                new Audio("./sounds/alligator-squelch.wav").play();
+                this.squelch = new Audio("./sounds/alligator-squelch.wav");
+                this.squelch.volume = 0.05;
+                this.squelch.play();
                 this.livesLeft.pop();
                 this.alligator.switchTrashImmunity();
                 this.myTrash.splice(0,1);
                 //this.context.clearRect(this.myTrash[0].x, this.myTrash[0].y, this.myTrash[0].width, this.myTrash[0].height);
             }
             if (this.livesLeft.length === 0){
-                new Audio("./sounds/game-over.mp3").play();
+                this.gameoverSound = new Audio("./sounds/game-over.mp3");
+                this.gameoverSound.volume = 0.05;
+                this.gameoverSound.play();
             }
         };
         if (this.myTrash[1] && this.myTrash[1].trashDidCollide(this.alligator)) {
             if (this.alligator.trashImmunity === false) {
-                new Audio("./sounds/alligator-squelch.wav").play();
+                this.squelch = new Audio("./sounds/alligator-squelch.wav");
+                this.squelch.volume = 0.05;
+                this.squelch.play();
                 this.livesLeft.pop();
                 this.alligator.switchTrashImmunity();
                 this.myTrash.splice(1,1);
             }
             if (this.livesLeft.length === 0){
-                new Audio("./sounds/game-over.mp3").play();
+                this.gameoverSound = new Audio("./sounds/game-over.mp3");
+                this.gameoverSound.volume = 0.05;
+                this.gameoverSound.play();
             }
         };
         if (this.myTrash[2] && this.myTrash[2].trashDidCollide(this.alligator)) {
                 if (this.alligator.trashImmunity === false) {
-                    new Audio("./sounds/alligator-squelch.wav").play();
+                    this.squelch = new Audio("./sounds/alligator-squelch.wav");
+                    this.squelch.volume = 0.05;
+                    this.squelch.play();
                 this.livesLeft.pop();
                 this.alligator.switchTrashImmunity();
                 this.myTrash.splice(2,1);
                 };
                 if (this.livesLeft.length === 0){
-                    new Audio("./sounds/game-over.mp3").play();
+                    this.gameoverSound = new Audio("./sounds/game-over.mp3");
+                    this.gameoverSound.volume = 0.05;
+                    this.gameoverSound.play();
                 }
         };
         if (this.myTrash[3] && this.myTrash[3].trashDidCollide(this.alligator)) {
             if (this.alligator.trashImmunity === false) {
-                new Audio("./sounds/alligator-squelch.wav").play();
+                this.squelch = new Audio("./sounds/alligator-squelch.wav");
+                this.squelch.volume = 0.05;
+                this.squelch.play();
             this.livesLeft.pop();
             this.alligator.switchTrashImmunity();
             this.myTrash.splice(3,1);
             };
             if (this.livesLeft.length === 0){
-                new Audio("./sounds/game-over.mp3").play();
+                this.gameoverSound = new Audio("./sounds/game-over.mp3");
+                this.gameoverSound.volume = 0.05;
+                this.gameoverSound.play();
             }
     };
 
@@ -220,7 +237,9 @@ class Game {
 
         if (this.myFood[0] && this.myFood[0].foodDidCollide(this.alligator)) {
             if (this.alligator.foodImmunity === false) {
-                new Audio("./sounds/munch.mp3").play();
+                this.munch = new Audio("./sounds/munch.mp3");
+                this.munch.volume = 0.05;
+                this.munch.play();
                 this.myFood.splice(0,1);
                 this.score += 1;
                 this.alligator.switchFoodImmunity();
@@ -232,7 +251,9 @@ class Game {
         }
         if (this.myFood[1] && this.myFood[1].foodDidCollide(this.alligator)) {
             if (this.alligator.foodImmunity === false) {
-                new Audio("./sounds/munch.mp3").play();
+                this.munch = new Audio("./sounds/munch.mp3");
+                this.munch.volume = 0.05;
+                this.munch.play();
                 this.myFood.splice(1,1);
                 this.score += 1;
                 this.alligator.switchFoodImmunity();
